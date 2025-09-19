@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dra. Gláucia Maria - Psicóloga Infantil e Adolescente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Cabeçalho */
+        header { background: linear-gradient(135deg, #d16ba5 0%, #fbc1cc 100%); color: white; padding: 30px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        .logo { display: flex; flex-direction: column; align-items: center; }
+        .logo-icon { font-size: 42px; margin-bottom: 10px; background: white; color: #d16ba5; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .logo h1 { font-size: 2.2rem; margin-bottom: 5px; }
+        .logo p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Menu */
+        nav { background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+        .nav-container { display: flex; justify-content: center; }
+        .nav-menu { display: flex; list-style: none; flex-wrap: wrap; }
+        .nav-menu li { padding: 20px; }
+        .nav-menu a { text-decoration: none; color: #444; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav-menu a:hover { color: #d16ba5; }
+        .nav-menu a::after { content: ""; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: #d16ba5; transition: width 0.3s; }
+        .nav-menu a:hover::after { width: 100%; }
+
+        /* Main */
+        .main-content { padding: 50px 0; }
+        section { margin-bottom: 60px; }
+        .section-title { text-align: center; margin-bottom: 40px; color: #333; position: relative; }
+        .section-title::after { content: ""; display: block; width: 80px; height: 4px; background: linear-gradient(to right, #d16ba5, #fbc1cc); margin: 15px auto; border-radius: 2px; }
+
+        /* Sobre */
+        .about-content { display: flex; align-items: center; gap: 40px; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); flex-wrap: wrap; }
+        .about-image { flex: 1 1 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 350px; }
+        .about-image img { width: 100%; height: auto; display: block; transition: transform 0.5s; border-radius: 10px; }
+        .about-image img:hover { transform: scale(1.03); }
+        .about-text { flex: 2 1 400px; min-width: 280px; }
+        .about-text p { margin-bottom: 15px; font-size: 1.1rem; }
+
+        /* Serviços */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+        .service-banner { height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.3rem; text-align: center; padding: 20px; user-select: none; position: relative; overflow: hidden; border-radius: 12px 12px 0 0; }
+        .service-banner i { font-size: 50px; margin-bottom: 10px; color: #fff; }
+        .banner-child { background: linear-gradient(135deg, #f6a5c0, #fbc1cc); }
+        .banner-teen { background: linear-gradient(135deg, #a5d8ff, #74c0fc); }
+        .banner-group { background: linear-gradient(135deg, #ffd43b, #ff922b); }
+
+        .service-content { padding: 25px; flex-grow: 1; }
+        .service-content h3 { color: #d16ba5; margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .service-content p { margin-bottom: 15px; color: #555; }
+        .service-content ul { padding-left: 20px; margin-bottom: 10px; }
+        .service-content li { margin-bottom: 8px; color: #555; position: relative; padding-left: 20px; }
+        .service-content li::before { content: "•"; position: absolute; left: 0; color: #d16ba5; font-weight: bold; }
+
+        /* Contato */
+        .contact-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .contact-info { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .contact-info h3 { color: #d16ba5; margin-bottom: 20px; font-size: 1.4rem; }
+        .contact-details { list-style: none; }
+        .contact-details li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        .contact-details i { color: #d16ba5; font-size: 1.4rem; width: 30px; text-align: center; }
+
+        .contact-form { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .contact-form h3 { color: #d16ba5; margin-bottom: 20px; font-size: 1.4rem; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #555; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #d16ba5; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .btn { display: inline-block; background: linear-gradient(to right, #d16ba5, #fbc1cc); color: white; padding: 12px 30px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(209,107,165,0.5); }
+
+        /* Ícones flutuantes */
+        .floating-icons { position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 15px; }
+        .floating-icon { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; color: white; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s; text-decoration: none; }
+        .floating-icon:hover { transform: scale(1.1); }
+        .whatsapp { background: #25d366; }
+        .instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+
+        /* Rodapé */
+        footer { background: linear-gradient(135deg, #d16ba5 0%, #fbc1cc 100%); color: white; padding: 40px 0 20px; text-align: center; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; }
+        .footer-logo { font-size: 2rem; margin-bottom: 20px; }
+        .footer-links { display: flex; list-style: none; margin-bottom: 30px; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .footer-links li { margin: 0; }
+        .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; font-weight: 500; font-size: 1rem; }
+        .footer-links a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .about-content { flex-direction: column; }
+            .nav-menu { flex-direction: column; align-items: center; }
+            .logo h1 { font-size: 1.8rem; }
+            .service-banner { height: 150px; font-size: 1.1rem; }
+            .service-banner i { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-brain"></i></div>
+            <h1>Dra. Gláucia Maria</h1>
+            <p>Psicóloga Infantil e Adolescente</p>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content container">
+    <section id="about">
+        <h2 class="section-title">Sobre a Dra. Gláucia</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="im1.png" alt="Foto profissional da Dra. Gláucia Maria" />
+            </div>
+            <div class="about-text">
+                <p>Dra. Gláucia Maria é psicóloga clínica especializada em crianças e adolescentes, com mais de 10 anos de experiência atendendo de forma humanizada e lúdica.</p>
+                <p>Formada pela Universidade Federal da Paraíba, com aperfeiçoamento em psicologia infantil, adolescência e orientação parental.</p>
+                <p>Trabalha auxiliando crianças e jovens a desenvolverem habilidades emocionais, melhorar o desempenho escolar e fortalecer relações familiares e sociais.</p>
+                <p>Seu atendimento é personalizado, com foco em ansiedade, depressão, dificuldades escolares e problemas de relacionamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Serviços</h2>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-banner banner-child"><i class="fas fa-child"></i> Psicoterapia Infantil</div>
+                <div class="service-content">
+                    <p>Atendimento para crianças, utilizando técnicas lúdicas e interativas.</p>
+                    <ul>
+                        <li>Avaliação psicológica detalhada</li>
+                        <li>Terapia através de brincadeiras</li>
+                        <li>Desenvolvimento de habilidades socioemocionais</li>
+                        <li>Orientação e acompanhamento aos pais</li>
+                        <li>Prevenção de problemas comportamentais</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-banner banner-teen"><i class="fas fa-user-graduate"></i> Psicoterapia Adolescente</div>
+                <div class="service-content">
+                    <p>Atendimento especializado para adolescentes, promovendo autoconhecimento e autoestima.</p>
+                    <ul>
+                        <li>Trabalha autoestima e identidade</li>
+                        <li>Apoio em relações familiares e sociais</li>
+                        <li>Gestão de ansiedade e depressão</li>
+                        <li>Orientação vocacional e escolhas de carreira</li>
+                        <li>Estratégias para lidar com pressão escolar e social</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-banner banner-group"><i class="fas fa-users"></i> Terapia em Grupo</div>
+                <div class="service-content">
+                    <p>Grupos terapêuticos para crianças e adolescentes, promovendo interação social e desenvolvimento emocional.</p>
+                    <ul>
+                        <li>Grupos organizados por faixa etária</li>
+                        <li>Desenvolvimento de habilidades sociais e emocionais</li>
+                        <li>Aprendizagem de resolução de conflitos</li>
+                        <li>Fortalecimento da autoestima e empatia</li>
+                        <li>Atividades lúdicas e interativas</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone"></i> <span>(83) 98649-7020</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>contato@glauciamariapsi.com.br</span></li>
+                    <li><i class="fas fa-clock"></i> <span>Seg-Sex: 8h-18h<br>Sáb: 8h-12h</span></li>
+                </ul>
+            </div>
+            <div class="contact-form">
+                <h3>Envie uma Mensagem</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" placeholder="Sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="floating-icons">
+    <a href="https://wa.me/5583986497020" target="_blank" class="floating-icon whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/glauciamaria284" target="_blank" class="floating-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">Dra. Gláucia Maria</div>
+        <ul class="footer-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <div class="copyright">© 2025 Dra. Gláucia Maria - Psicóloga Infantil e Adolescente</div>
+    </div>
+</footer>
+
+</body>
+</html>
