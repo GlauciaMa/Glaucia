@@ -35,8 +35,21 @@
 
         /* Sobre */
         .about-content { display: flex; align-items: center; gap: 40px; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); flex-wrap: wrap; }
-        .about-image { flex: 1 1 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 350px; }
-        .about-image img { width: 100%; height: auto; display: block; transition: transform 0.5s; border-radius: 10px; }
+        .about-image {
+            flex: 1 1 300px;
+            max-width: 350px; /* Tamanho profissional no notebook */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            height: auto; /* Mantém proporção */
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
         .about-image img:hover { transform: scale(1.03); }
         .about-text { flex: 2 1 400px; min-width: 280px; }
         .about-text p { margin-bottom: 15px; font-size: 1.1rem; }
@@ -66,16 +79,6 @@
         .contact-details li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
         .contact-details i { color: #d16ba5; font-size: 1.4rem; width: 30px; text-align: center; }
 
-        .contact-form { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .contact-form h3 { color: #d16ba5; margin-bottom: 20px; font-size: 1.4rem; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #555; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #d16ba5; }
-        .form-group textarea { min-height: 120px; resize: vertical; }
-        .btn { display: inline-block; background: linear-gradient(to right, #d16ba5, #fbc1cc); color: white; padding: 12px 30px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(209,107,165,0.5); }
-
         /* Ícones flutuantes */
         .floating-icons { position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 15px; }
         .floating-icon { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; color: white; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s; text-decoration: none; }
@@ -92,8 +95,10 @@
         .footer-links a { color: white; text-decoration: none; transition: opacity 0.3s; font-weight: 500; font-size: 1rem; }
         .footer-links a:hover { opacity: 0.8; }
 
+        /* Media query para celulares */
         @media (max-width: 768px) {
-            .about-content { flex-direction: column; }
+            .about-content { flex-direction: column; align-items: center; }
+            .about-image { max-width: 250px; margin-bottom: 20px; }
             .nav-menu { flex-direction: column; align-items: center; }
             .logo h1 { font-size: 1.8rem; }
             .service-banner { height: 150px; font-size: 1.1rem; }
@@ -134,7 +139,7 @@
             </div>
             <div class="about-text">
                 <p>Dra. Gláucia Maria é psicóloga clínica especializada em crianças e adolescentes, com mais de 10 anos de experiência atendendo de forma humanizada e lúdica.</p>
-                <p>Formada pela Universidade Federal da Paraíba, com aperfeiçoamento em psicologia infantil, adolescência e orientação parental.</p>
+                <p>Formada pela Unifacisa, com aperfeiçoamento em psicologia infantil, adolescência e orientação parental.</p>
                 <p>Trabalha auxiliando crianças e jovens a desenvolverem habilidades emocionais, melhorar o desempenho escolar e fortalecer relações familiares e sociais.</p>
                 <p>Seu atendimento é personalizado, com foco em ansiedade, depressão, dificuldades escolares e problemas de relacionamento.</p>
             </div>
@@ -166,9 +171,9 @@
                     <ul>
                         <li>Trabalha autoestima e identidade</li>
                         <li>Apoio em relações familiares e sociais</li>
-                        <li>Gestão de ansiedade e depressão</li>
-                        <li>Orientação vocacional e escolhas de carreira</li>
-                        <li>Estratégias para lidar com pressão escolar e social</li>
+                        <li>Intervenção em ansiedade e depressão</li>
+                        <li>Orientação vocacional</li>
+                        <li>Resolução de conflitos interpessoais</li>
                     </ul>
                 </div>
             </div>
@@ -176,13 +181,13 @@
             <div class="service-card">
                 <div class="service-banner banner-group"><i class="fas fa-users"></i> Terapia em Grupo</div>
                 <div class="service-content">
-                    <p>Grupos terapêuticos para crianças e adolescentes, promovendo interação social e desenvolvimento emocional.</p>
+                    <p>Atividades em grupo para desenvolvimento social e emocional de crianças e adolescentes.</p>
                     <ul>
-                        <li>Grupos organizados por faixa etária</li>
-                        <li>Desenvolvimento de habilidades sociais e emocionais</li>
-                        <li>Aprendizagem de resolução de conflitos</li>
-                        <li>Fortalecimento da autoestima e empatia</li>
-                        <li>Atividades lúdicas e interativas</li>
+                        <li>Grupos divididos por faixa etária</li>
+                        <li>Fortalecimento de habilidades sociais</li>
+                        <li>Desenvolvimento emocional coletivo</li>
+                        <li>Resolução de conflitos em grupo</li>
+                        <li>Dinâmicas lúdicas e educativas</li>
                     </ul>
                 </div>
             </div>
@@ -201,28 +206,11 @@
                     <li><i class="fas fa-clock"></i> <span>Seg-Sex: 8h-18h<br>Sáb: 8h-12h</span></li>
                 </ul>
             </div>
-            <div class="contact-form">
-                <h3>Envie uma Mensagem</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" name="name" placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="Seu e-mail">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" placeholder="Sua mensagem"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar</button>
-                </form>
-            </div>
         </div>
     </section>
 </main>
 
+<!-- Ícones flutuantes -->
 <div class="floating-icons">
     <a href="https://wa.me/5583986497020" target="_blank" class="floating-icon whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="https://instagram.com/glauciamaria284" target="_blank" class="floating-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
